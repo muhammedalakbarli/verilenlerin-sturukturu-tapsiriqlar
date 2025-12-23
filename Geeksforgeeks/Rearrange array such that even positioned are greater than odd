@@ -1,0 +1,23 @@
+def rearrangeArray(arr):
+    arr.sort()
+
+    n = len(arr)
+    result = [0] * n
+    ptr1, ptr2 = 0, n - 1
+
+    for i in range(n):
+      
+        if (i + 1) % 2 == 0:
+            result[i] = arr[ptr2]
+            ptr2 -= 1
+            
+        else:
+            result[i] = arr[ptr1]
+            ptr1 += 1
+
+    return result
+
+ 
+arr = [1, 2, 2, 1]
+res = rearrangeArray(arr)
+print(res)

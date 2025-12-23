@@ -1,0 +1,32 @@
+def power(x, y):
+    if y == 0:
+        return 1
+    if y % 2 == 0:
+        return power(x, y // 2) * power(x, y // 2)
+    return x * power(x, y // 2) * power(x, y // 2)
+
+def order(n):
+    t = 0
+    while n:
+        t += 1
+        n //= 10
+    return t
+
+def armstrong(n):
+    
+    x = order(n)
+    temp = n
+    sum_ = 0
+    while temp:
+        r = temp % 10
+        sum_ += power(r, x)
+        temp //= 10
+
+    return sum_ == n
+    
+if __name__ == "__main__":
+    n = 153
+    if armstrong(n):
+        print("true")
+    else:
+        print("false")

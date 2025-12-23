@@ -1,0 +1,15 @@
+def check_duplicates_within_k(arr, k):
+    n = len(arr)
+
+    for i in range(n):
+      
+        for c in range(1, k + 1):
+            j = i + c
+            
+            if j < n and arr[i] == arr[j]:
+                return True
+              
+    return False
+
+arr = [10, 5, 3, 4, 3, 5, 6]
+print("Yes" if check_duplicates_within_k(arr, 3) else "No")

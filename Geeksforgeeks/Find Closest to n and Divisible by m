@@ -1,0 +1,15 @@
+def closest_divisible(n, m):
+    lower = n - (n % m)
+    upper = lower if n % m == 0 else lower + (m if n > 0 else -m)
+
+    dist_lower = abs(n - lower)
+    dist_upper = abs(n - upper)
+
+    if dist_lower < dist_upper:
+        return lower
+    elif dist_upper < dist_lower:
+        return upper
+    else:
+        return lower if abs(lower) > abs(upper) else upper
+
+print(closest_divisible(13, 4))   
